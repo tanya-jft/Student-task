@@ -15,22 +15,31 @@ public class StudentController {
 
     private StudentService studentService;
 
+    // Autowiring Dependency
+
     @Autowired
     public void getService(StudentService studentService){
         this.studentService = studentService;
     }
+
+
+    // Mapping
 
     @GetMapping("/")
     public String homePageMapping(){
         return "Home Page View";
     }
 
-    // get all students
     @GetMapping("/allstudents")
-    public List<StudentDto> getAllStudentsMapping(){
+    public ResponseEntity<?> getAllStudentsMapping(){
         List<StudentDto> studentDtoList = studentService.getAllStudents();
-        return studentDtoList;
-    }
 
+        if(studentDtoList != null){
+            return ResponseEntity.accepted().body(studentDtoList);
+        }
+
+        // if list is empty
+        return ResponseEntity.accepted().body("Student List is Empty");
+    }
 
 }

@@ -25,8 +25,6 @@ public class Students {
     private String fullName;
 
     @Column(name = "total_marks")
-    @Min(0)
-    @Max(600)
     // use "int" instead of "Integer" because "int" can not store NULL value in itself.
     private int totalMarks;
 }

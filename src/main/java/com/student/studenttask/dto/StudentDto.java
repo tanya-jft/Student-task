@@ -1,5 +1,8 @@
 package com.student.studenttask.dto;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +14,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StudentDto {
     private int id;
+
+    @NotBlank(message = "Name is required of student")
     private String fullName;
+
+    @Min(0) @Max(600)
+    @NotBlank(message = "Marks field is required")
     private Integer totalMarks;
 }
