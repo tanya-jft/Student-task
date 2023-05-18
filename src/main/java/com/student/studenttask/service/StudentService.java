@@ -28,7 +28,10 @@ public class StudentService {
         if(!studentList.isEmpty()){
             // convert the student entity to student DTO
             List<StudentDto> studentDto = studentList.stream()
-                    .map(student -> new StudentDto(student.getId(), student.getFullName() , student.getTotalMarks()))
+                    .map(student -> new StudentDto(
+                            student.getId(),
+                            student.getFullName() ,
+                            student.getTotalMarks()))
                     .collect(Collectors.toList());
 
             return studentDto;
