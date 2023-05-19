@@ -7,11 +7,7 @@ import lombok.*;
 
 
 // lombok annotations
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+@Data
 @Entity
 @Table(name = "students")
 public class Students {
