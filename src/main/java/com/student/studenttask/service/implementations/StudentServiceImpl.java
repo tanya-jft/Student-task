@@ -7,6 +7,7 @@ import com.student.studenttask.repository.StudentRepo;
 import com.student.studenttask.service.StudentServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,13 +33,21 @@ public class StudentServiceImpl implements StudentServiceInterface {
             List<StudentDto> studentDto = studentList.stream()
                     .map(student -> new StudentDto(
                             student.getId(),
-                            student.getFullName() ,
+                            student.getFullName(),
                             student.getTotalMarks()))
                     .collect(Collectors.toList());
 
             return studentDto;
         }
         return null;
+    }
+
+    @Override
+    public String addStudent(Students studentDto) {
+        // with this we can save the student
+        repo.save(studentDto);
+//        return the string for reference
+        return "Student Created ";
     }
 
 
