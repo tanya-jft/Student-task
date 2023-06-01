@@ -5,6 +5,7 @@ import com.student.studenttask.dto.StudentDto;
 import com.student.studenttask.entity.Students;
 import com.student.studenttask.repository.StudentRepo;
 import com.student.studenttask.service.StudentServiceInterface;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,12 @@ import java.util.stream.Collectors;
 public class StudentServiceImpl implements StudentServiceInterface {
 
     private StudentRepo repo;
+
+    private final ModelMapper mapper;
+
+    public StudentServiceImpl(ModelMapper mapper) {
+        this.mapper = mapper;
+    }
 
     // getting dependencies
     @Autowired
