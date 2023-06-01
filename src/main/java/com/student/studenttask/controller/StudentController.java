@@ -2,10 +2,14 @@ package com.student.studenttask.controller;
 
 
 import com.student.studenttask.dto.StudentDto;
+import com.student.studenttask.entity.Students;
 import com.student.studenttask.service.implementations.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -30,15 +34,21 @@ public class StudentController {
     }
 
     @GetMapping("/students")
-    public ResponseEntity<?> getAllStudentsMapping(){
+    public ResponseEntity<?> getAllStudentsMapping() {
         List<StudentDto> studentDtoList = studentServiceImpl.getAllStudents();
 
-        if(studentDtoList != null){
+        if (studentDtoList != null) {
             return ResponseEntity.accepted().body(studentDtoList);
         }
 
         // if list is empty
         return ResponseEntity.accepted().body("Student List is Empty");
+    }
+
+
+    @PostMapping("/students")
+    public String saveStudent(@RequestBody Students studentDto) {
+        return studentServiceImpl.addStudent(studentDto);
     }
 
 }
