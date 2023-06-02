@@ -31,6 +31,8 @@ public class StudentServiceImpl implements StudentServiceInterface {
 
 
     // getting all students
+    // getting all students
+    // getting all studentsc
     @Override
     public List<StudentDto> getAllStudents(){
         List<Students> studentList = repo.findAll();
@@ -51,6 +53,7 @@ public class StudentServiceImpl implements StudentServiceInterface {
 
 
     //add student function
+    //add student function
     @Override
     public String addStudent(Students studentDto) {
         // with this we can save the student
@@ -68,6 +71,7 @@ public class StudentServiceImpl implements StudentServiceInterface {
     }
 
 
+    //update student function
     //update student function
     @Override
     public String updateStudent(Students students) {
