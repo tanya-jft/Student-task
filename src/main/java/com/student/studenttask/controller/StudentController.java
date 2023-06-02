@@ -56,4 +56,11 @@ public class StudentController {
         return studentServiceImpl.deleteStudent(sid);
     }
 
+
+    @PutMapping
+    public String updateStudent(@RequestBody Students students)
+    {
+        return studentServiceImpl.updateStudnet(students);
+    }
+
 }

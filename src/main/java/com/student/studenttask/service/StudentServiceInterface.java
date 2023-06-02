@@ -13,4 +13,6 @@ public interface StudentServiceInterface {
     public String addStudent(Students studentDto);
 
     String deleteStudent(Integer sid);
+
+    String updateStudnet(Students students);
 }

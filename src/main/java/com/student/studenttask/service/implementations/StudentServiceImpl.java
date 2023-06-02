@@ -59,8 +59,17 @@ public class StudentServiceImpl implements StudentServiceInterface {
 
     @Override
     public String deleteStudent(Integer sid) {
-        Students students = repo.findById(sid).orElseThrow(() -> new RuntimeException("User not Found"));
+        Students students = repo.findById(sid).orElseThrow(() -> new RuntimeException("Student not Found"));
         repo.delete(students);
         return "Student Deleted ";
     }
+
+    @Override
+    public String updateStudnet(Students students) {
+        Students currentStudent = repo.findById(students.getId()).orElseThrow(() -> new RuntimeException("Student not Found"));
+        mapper.map(students, currentStudent);
+        return "Student Updated";
+    }
+
+
 }
