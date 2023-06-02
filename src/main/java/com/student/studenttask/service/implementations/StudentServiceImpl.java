@@ -57,5 +57,10 @@ public class StudentServiceImpl implements StudentServiceInterface {
         return "Student Created ";
     }
 
-
+    @Override
+    public String deleteStudent(Integer sid) {
+        Students students = repo.findById(sid).orElseThrow(() -> new RuntimeException("User not Found"));
+        repo.delete(students);
+        return "Student Deleted ";
+    }
 }
