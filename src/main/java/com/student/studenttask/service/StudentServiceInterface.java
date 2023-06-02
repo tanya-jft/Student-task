@@ -14,5 +14,5 @@ public interface StudentServiceInterface {
 
     String deleteStudent(Integer sid);
 
-    String updateStudnet(Students students);
+    String updateStudent(Students students);
 }

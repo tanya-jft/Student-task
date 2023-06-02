@@ -60,7 +60,7 @@ public class StudentController {
     @PutMapping
     public String updateStudent(@RequestBody Students students)
     {
-        return studentServiceImpl.updateStudnet(students);
+        return studentServiceImpl.updateStudent(students);
     }
 
 }

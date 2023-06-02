@@ -49,6 +49,8 @@ public class StudentServiceImpl implements StudentServiceInterface {
         return null;
     }
 
+
+    //add student function
     @Override
     public String addStudent(Students studentDto) {
         // with this we can save the student
@@ -57,6 +59,7 @@ public class StudentServiceImpl implements StudentServiceInterface {
         return "Student Created ";
     }
 
+    //delete student function
     @Override
     public String deleteStudent(Integer sid) {
         Students students = repo.findById(sid).orElseThrow(() -> new RuntimeException("Student not Found"));
@@ -64,8 +67,10 @@ public class StudentServiceImpl implements StudentServiceInterface {
         return "Student Deleted ";
     }
 
+
+    //update student function
     @Override
-    public String updateStudnet(Students students) {
+    public String updateStudent(Students students) {
         Students currentStudent = repo.findById(students.getId()).orElseThrow(() -> new RuntimeException("Student not Found"));
         mapper.map(students, currentStudent);
         return "Student Updated";
