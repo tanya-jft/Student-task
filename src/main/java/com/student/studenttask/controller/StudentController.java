@@ -6,10 +6,7 @@ import com.student.studenttask.entity.Students;
 import com.student.studenttask.service.implementations.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -50,6 +47,20 @@ public class StudentController {
     public String saveStudent(@RequestBody Students studentDto) {
         //save and return
         return studentServiceImpl.addStudent(studentDto);
+    }
+
+
+    @DeleteMapping("/{sid}")
+    public String deleteStudnt(@PathVariable Integer sid)
+    {
+        return studentServiceImpl.deleteStudent(sid);
+    }
+
+
+    @PutMapping
+    public String updateStudent(@RequestBody Students students)
+    {
+        return studentServiceImpl.updateStudent(students);
     }
 
 }

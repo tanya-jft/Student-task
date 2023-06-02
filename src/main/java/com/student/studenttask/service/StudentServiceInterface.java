@@ -11,4 +11,8 @@ public interface StudentServiceInterface {
 
     public List<StudentDto> getAllStudents();
     public String addStudent(Students studentDto);
+
+    String deleteStudent(Integer sid);
+
+    String updateStudent(Students students);
 }
